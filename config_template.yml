@@ -1,0 +1,14 @@
+flask:
+  secret_key: 'f3SOndQk0etKEzVHzKMQypE6gZPTBdwWxb8DQned'
+  max_content_length: 67108864
+dangerous_extensions: [
+    '.exe', '.bat', '.cmd', '.com', '.scr', '.msi', '.jar',  # fichiers executables
+    '.js', '.vbs', '.ps1', '.wsf', '.jse', '.vbe',  # fichiers de script
+    '.sh', '.bash', '.zsh',  # fichiers de script shell
+    '.doc', '.docm', '.docx', '.xls', '.xlsm', '.xlsx', '.ppt', '.pptm', '.pptx',  # documents office
+    '.pdf',  # fichiers PDF
+    '.lnk', '.url', '.inf',  # raccourcis et liens
+    '.zip', '.rar', '.7z', '.gz', '.iso',  # archives, fichiers compressées et images disque
+    '.img', '.vhd',  # autres fichiers d’image disque
+    '.hta', '.cpl', '.dll', '.reg'  # autres fichiers dangereux dangereux (registres, drivers, ...s)
+    ]

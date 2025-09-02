@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload des Emails</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Analyseur d'Emails</h1>
+        <form method="post" enctype="multipart/form-data">
+            <label for="files">Sélectionnez vos fichiers emails (.eml) :</label><br><br>
+            <input type="file" id="files" name="files" accept=".eml" multiple webkitdirectory required><br><br>
+            <button type="submit">Analyser les Emails</button>
+        </form>
+    </div>
+</body>
+</html>

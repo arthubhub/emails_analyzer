@@ -1,0 +1,6 @@
+eml-analyzer
+Flask~=3.1.0
+mail-parser
+Werkzeug>=3.1
+pyyaml~=6.0.2
+MarkupSafe~=3.0.2

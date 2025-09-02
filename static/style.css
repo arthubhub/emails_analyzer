@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2, .section h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.section-content {
+    padding: 15px;
+    background-color: #fafafa;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    display: none; /* Les sections sont initialement masquées */
+}
+
+/* Boutons */
+button {
+    padding: 6px 10px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Préformatage du texte */
+pre {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    border: 1px solid #e1e1e1;
+}
+
+/* Liens */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Listes */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+img {
+    height: 50px;
+    
+}
+
+.suspicious-item {
+    display: flex;
+    align-items: center; /* Centre les éléments verticalement */
+    margin-bottom: 10px;
+}
+
+.suspicious-item img {
+    max-height: 32px; 
+    margin-right: 10px; /* Espacement à droite de l'image */
+}
+
+
+/* Default styling for closed sections */
+.section-content {
+    display: none; /* Cacher les sections par défaut */
+    padding: 15px;
+    background-color: #fafafa;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+}
+.open {
+    display: block; 
+
+}
+
+.section h2::after, .section h3::after {
+    content: '▶';
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.section.open h2::after, .section.open h3::after {
+    content: '▼';
+}
+
+

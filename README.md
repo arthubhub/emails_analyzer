@@ -52,8 +52,12 @@ Structure du Projet
 Exemples d’Utilisation
 
 	1.	Téléchargez un ou plusieurs fichiers .eml via le bouton d’upload.
+ <img width="1016" height="395" alt="projets_emailanalyzer" src="https://github.com/user-attachments/assets/eef59d0a-1720-475b-83de-6d41c8c7788a" />
+
 	2.	Lancez l’analyse en soumettant les fichiers.
 	3.	Consultez les résultats pour chaque fichier .eml directement sur la page de résultats.
+<img width="1016" height="928" alt="Screenshot 2025-09-04 at 18 36 29" src="https://github.com/user-attachments/assets/8b372656-8469-4268-bab3-0f5086f3afb8" />
+<img width="1312" height="853" alt="Screenshot 2025-09-04 at 18 36 41" src="https://github.com/user-attachments/assets/a4684dc4-851c-480c-9fd2-50f424e66aec" />
 
 
 

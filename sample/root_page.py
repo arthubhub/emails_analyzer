@@ -21,13 +21,16 @@ def upload_files():
         session_upload_folder = os.path.join(UPLOAD_FOLDER, session_id)
         os.makedirs(session_upload_folder, exist_ok=True)
         files = request.files.getlist('files')
+        mode=request.form['mode']
         email_ids = {}
+
         # Traiter chaque fichier
         for file in files:
             process_uploaded_file(file, email_ids, session_upload_folder)
         shutil.rmtree(session_upload_folder)
         # Trier les emails par niveau de suspicion
         sorted_email_ids = sorted(email_ids, key=lambda email_id: email_ids[email_id], reverse=True)
+        session['mode'] = mode
         session['email_ids'] = sorted_email_ids
         return redirect(url_for('result_page_bp.results'))
     

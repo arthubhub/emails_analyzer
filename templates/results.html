@@ -31,37 +31,8 @@
 <body>
     <div class="container">
         <h1>Résultats de l'Analyse</h1>
-        {% if email_ids %}
-            {% for email_id in email_ids %}
-                {% if email_id in analysis_data %}
-                    {% set data = analysis_data[email_id] %}
-                    <div class="email-result">
-                        <h3>{{ data.filename }}</h3>
-                        <p><strong>Nombre de pièces jointes :</strong> {{ data.stats.attachments_count }}</p>
-                        <div>
-                            <p><strong>Email suspect :</strong> {{ data.stats.is_suspicious }}</p>
-
-                            {% if data.stats.susp_render|length == 0 %}
-                                <p>0 : Votre email n'a pas été détecté comme suspect. Vous devriez analyser son contenu texte.</p>
-                            {% else %}
-                                {% for susp_rend in data.stats.susp_render %}
-                                    <div class="suspicious-item">
-                                        <img src="{{ url_for('static', filename=susp_rend.image) }}" alt="suspiciousitem">
-                                        <span>{{ susp_rend.message }}</span>
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-                        <a href="{{ url_for('analysis_page.show_analysis', email_id=email_id) }}">
-                            <button>Voir l'analyse complète</button>
-                        </a>
-                    </div>
-                {% else %}
-                    <div class="email-result">
-                        <p>Analyse non disponible pour cet ID : {{ email_id }}</p>
-                    </div>
-                {% endif %}
-            {% endfor %}
+        {% if rendered_html %}
+            {{ rendered_html|safe }}
         {% else %}
             <p>Aucun email analysé.</p>
         {% endif %}

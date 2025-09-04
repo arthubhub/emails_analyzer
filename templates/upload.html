@@ -6,13 +6,32 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
+    <div class="page-title">
         <h1>Analyseur d'Emails</h1>
-        <form method="post" enctype="multipart/form-data">
-            <label for="files">Sélectionnez vos fichiers emails (.eml) :</label><br><br>
-            <input type="file" id="files" name="files" accept=".eml" multiple webkitdirectory required><br><br>
-            <button type="submit">Analyser les Emails</button>
-        </form>
+
+    </div>
+    <div id="container-upload">
+        <div id="analysis-left-block">
+            <h2>Instructions</h2>
+            <p>1. Sélectionnez vos fichiers (.eml) ou votre dossier.</p>
+            <p>2. Choisissez le mode d'analyse.</p>
+            <p>3. Analysez les résultats.</p>
+        </div>
+        <div id="analysis-right-block">
+            <form method="post" enctype="multipart/form-data">
+                <label for="files">Sélectionnez vos fichiers emails (.eml) :</label><br><br>
+                <input type="file" id="files" name="files" accept=".eml" multiple><br><br>
+                <input type="file" id="files" name="files" accept=".eml" multiple webkitdirectory><br><br>
+                <label for="mode">Mode d'analyse :</label><br><br>
+                <select id="mode" name="mode" required>
+                    <option value="Threat">Threat</option>
+                    <option value="Analyst">Analyst</option>
+                </select><br><br>
+                <button type="submit">Analyser les Emails</button>
+            </form>
+        </div>
+
+
     </div>
 </body>
 </html>

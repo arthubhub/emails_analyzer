@@ -84,7 +84,6 @@ def _parse_eml_file_or_exit_on_error(output_format: AbstractOutput, eml_content:
         print('File could not be parsed. Sure it is an eml file?')
         output_format.output_error_and_exit(exception=e, error_message='File could not be parsed. Sure it is an eml file?')
 
-
 def _write_attachment_to_file(attachment: Attachment, output_path) -> None:
     output_path = _get_output_path_for_attachment(attachment=attachment, output_path=output_path)
 

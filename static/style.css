@@ -10,6 +10,38 @@ body {
     color: #333;
 }
 
+.page-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#container-upload {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    display: flex; /* Pour aligner les blocs enfants côte à côte */
+    justify-content: space-between; /* Espacement égal entre les blocs */
+    align-items: stretch; /* Étire les blocs pour qu'ils aient la même hauteur */
+}
+
+#analysis-left-block,
+#analysis-right-block {
+    width: 49%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+
+    display: flex; /* Active flexbox pour les contenus internes */
+    flex-direction: column; /* Permet d'organiser les contenus verticalement */
+}
+
 .container {
     max-width: 1000px;
     margin: 50px auto;

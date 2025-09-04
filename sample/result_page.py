@@ -4,7 +4,7 @@ import os
 import json
 
 # import the render_suspicious function from the analysis_page_utils.py file
-from sample.result_page_utils import render_suspicious
+from sample.result_page_utils import *
 # import the UPLOAD_FOLDER variable from the config.py file
 from config import UPLOAD_FOLDER
 
@@ -12,7 +12,8 @@ result_page_bp = Blueprint('result_page_bp', __name__)
 
 @result_page_bp.route('/results')
 def results():
-    """Affiche les résultats de l'analyse pour tous les emails uploadés."""
+    mode = session.get('mode')
+    print("mode : ",mode)
     email_ids = session.get('email_ids', [])
     analysis_data = {}
     
@@ -20,8 +21,22 @@ def results():
         analysis_file = os.path.join(UPLOAD_FOLDER, email_id, 'analysis.json')
         if os.path.exists(analysis_file):
             with open(analysis_file, 'r', encoding='utf-8') as f:
-                analysis_data[email_id] = json.load(f)
-                analysis_data[email_id]['stats']['susp_render'] = render_suspicious(analysis_data[email_id]['stats']['is_suspicious'])
+                data = json.load(f)
 
-    return render_template('results.html', email_ids=email_ids, analysis_data=analysis_data)
+                # Si on est en mode Threat, on rajoute la partie suspicieuse
+                if mode == "Threat":
+                    data['stats']['susp_render'] = render_suspicious(data['stats']['is_suspicious'])
+
+                analysis_data[email_id] = data
+
+    # Rendu en fonction du mode
+    rendered_html = ""
+    if mode == "Threat":
+        rendered_html = render_threat_mode(analysis_data)
+    elif mode == "Analyst":
+        rendered_html = render_analyst_mode(analysis_data)
+    else:
+        rendered_html = "<p>Mode inconnu</p>"
+
+    return render_template('results.html', rendered_html=rendered_html)
 
